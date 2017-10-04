@@ -1,0 +1,6 @@
+[InputOutput::RequireCheckedSyscalls]
+functions = :builtins
+exclude_functions = print
+
+[-Modules::RequireVersionVar]
+
