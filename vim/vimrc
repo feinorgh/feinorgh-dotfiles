@@ -2,18 +2,19 @@
 " specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " make sure you use single quotes
-Plug 'ctrlpvim/ctrlp.vim', { 'tag': '*' }
-Plug 'vim-scripts/Gundo', { 'tag': '*' }
+Plug 'Valloric/YouCompleteMe'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim', { 'tag': '*' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'jeaye/color_coded'
+Plug 'leafgarland/typescript-vim'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/Gundo', { 'tag': '*' }
 Plug 'vim-syntastic/syntastic'
 Plug 'yko/mojo.vim'
-Plug 'fatih/vim-go', { 'tag': '*' }
-Plug 'rust-lang/rust.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'jeaye/color_coded'
 call plug#end()
 " }}}
 " Colors {{{
