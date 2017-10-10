@@ -12,6 +12,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/Gundo', { 'tag': '*' }
 Plug 'vim-syntastic/syntastic'
 Plug 'yko/mojo.vim'
