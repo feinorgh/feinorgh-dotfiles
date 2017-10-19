@@ -93,6 +93,9 @@ set grepprg=grep\ -nH\ $*       " use this for the grep command
 " make vim not show listchars for Go (distracting)
 autocmd FileType go setlocal list listchars=tab:\ \ ,trail:·
 
+" make JavaScript have 2 space indentation instead of 4
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+
 " toggle gundo (graphical undo plugin)
 nnoremap <leader>u :GundoToggle<CR>
 
@@ -127,7 +130,7 @@ let mojo_highlight_data=1
 let mojo_disable_html=1
 " }}}
 " YouCompleteMe (ycm) Configuration {{{
-let g:ycm_rust_src_path = '/home/pk/Code/rustc-1.20.0-src'
+let g:ycm_rust_src_path = '/home/pk/Code/rustc-1.21.0-src'
 "let g:ycm_server_python_interpreter = '/usr/bin/python2'
 " }}}
 " Backups {{{
