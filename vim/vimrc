@@ -1,6 +1,6 @@
 " Plugins {{{
 " specify a directory for plugins
-if empty(glob('~/.vim/plugged/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -35,7 +35,8 @@ set tabstop=4           " number of visual spaces per TAB
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
 set shiftwidth=4        " number of spaces to use for each step of (auto)indent
-set modelines=1         " number of lines that is checked for set commands in files
+set modelines=3         " number of lines that is checked for set commands in files
+set modeline
 filetype indent on      " load filetype-specific indent files
 filetype plugin on      " load filetype-specific plugin files
 set autoindent          " make vim handle indentation
@@ -135,7 +136,7 @@ let mojo_highlight_data=1
 let mojo_disable_html=1
 " }}}
 " YouCompleteMe (ycm) Configuration {{{
-let g:ycm_rust_src_path = '/home/pk/Code/rustc-1.21.0-src'
+let g:ycm_rust_src_path = "$HOME/.local/src/rustc-src"
 "let g:ycm_server_python_interpreter = '/usr/bin/python2'
 " }}}
 " Backups {{{
