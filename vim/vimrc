@@ -26,8 +26,8 @@ call plug#end()
 " Colors {{{
 syntax enable           " enable syntax processing
 set t_Co=256            " enable 256 colors
-colorscheme solarized
 let g:solarized_termcolors=256
+colorscheme solarized
 set background=dark
 " }}}
 " Spaces & Tabs {{{
