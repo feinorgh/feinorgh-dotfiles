@@ -168,6 +168,9 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+" this function is used for inline syntax highlighting for, say
+" heredocs. needs a corresponding function call in
+" ~/.vim/after/syntax/{language}.vim
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
     let ft=toupper(a:filetype)
     let group='textGroup'.ft
@@ -177,7 +180,7 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
         " cpp.vim) do nothing if b:current_syntax is defined
         unlet b:current_syntax
     endif
-    execute 'syntax inlcude @'.group.' syntax/'.a:filetype.'.vim'
+    execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
     try
         execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
     catch
