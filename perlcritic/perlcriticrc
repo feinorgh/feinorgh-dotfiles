@@ -4,3 +4,8 @@ exclude_functions = print
 
 [-Modules::RequireVersionVar]
 
+[TestingAndDebugging::RequireUseStrict]
+equivalent_modules = Modern::Perl Mojo::Base Mojolicious::Lite
+
+[TestingAndDebugging::RequireUseWarnings]
+equivalent_modules = Modern::Perl Mojo::Base Mojolicious::Lite
