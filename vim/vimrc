@@ -21,6 +21,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/Gundo', { 'tag': '*' }
 Plug 'vim-syntastic/syntastic'
 Plug 'yko/mojo.vim'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 " }}}
 " Colors {{{
@@ -31,10 +32,12 @@ colorscheme solarized
 set background=dark
 " }}}
 " Spaces & Tabs {{{
-set tabstop=4           " number of visual spaces per TAB
-set softtabstop=4       " number of spaces in tab when editing
-set expandtab           " tabs are spaces
-set shiftwidth=4        " number of spaces to use for each step of (auto)indent
+" In case you don't want or have Tim Pope's vim-sleuth plugin, enable the four
+" lines below for default indentation settings
+"set tabstop=4           " number of visual spaces per TAB
+"set softtabstop=4       " number of spaces in tab when editing
+"set expandtab           " tabs are spaces
+"set shiftwidth=4        " number of spaces to use for each step of (auto)indent
 set modelines=3         " number of lines that is checked for set commands in files
 set modeline
 filetype indent on      " load filetype-specific indent files
