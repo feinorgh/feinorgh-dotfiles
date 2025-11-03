@@ -1,0 +1,77 @@
+#!/bin/bash
+# /etc/skel/.bashrc
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+    # Shell is non-interactive.  Be done now!
+    return
+fi
+
+
+# Put your fun stuff here.
+
+HISTFILESIZE=32767
+HISTSIZE=2048
+HISTCONTROL=ignoreboth
+export HISTFILESIZE HISTSIZE HISTCONTROL
+
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+    export PATH
+fi
+
+if [ -x "$(command -v fzf)" ]; then
+    # shellcheck disable=SC1091
+    source /usr/share/bash-completion/completions/fzf
+    # shellcheck disable=SC1091
+    source /usr/share/fzf/key-bindings.bash
+fi
+
+if [ -x "$(command -v molecule)" ]; then
+    eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
+fi
+
+if [ -d "$HOME/.lv2" ]; then
+    LV2_PATH="$HOME/.lv2:$LV2_PATH"
+    export LV2_PATH
+fi
+
+alias dispatch-conf='sudo dispatch-conf'
+alias emerge='sudo emerge'
+alias eix-sync='sudo eix-sync'
+
+if [ -x "$(command -v starship)" ]; then
+    eval "$(starship init bash)"
+fi
+
+if [ -x "$(command -v kubectl)" ]; then
+    # shellcheck source=/dev/null
+    source <("$(command -v kubectl)" completion bash)
+fi
+if [ -x "$(command -v minikube)" ]; then
+    if [ ! -x "$(command -v kubectl)" ]; then
+        alias kubectl='minikube kubectl --'
+    fi
+    # shellcheck source=/dev/null
+    source <("$(command -v minikube)" completion bash)
+    if alias kubectl >/dev/null 2>&1; then
+        # shellcheck source=/dev/null
+        source <(kubectl completion bash)
+    fi
+fi
+
+if [ -x "$(command -v terraform)" ]; then
+    complete -C "$(command -v terraform)" terraform
+fi
+
+if [ -x "$(command -v tofu)" ]; then
+    complete -C "$(command -v tofu)" tofu
+fi
